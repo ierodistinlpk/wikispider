@@ -1,0 +1,24 @@
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String
+
+Base = declarative_base()
+
+class Link(Base):
+    __tablename__='links'
+
+    href=Column(String)
+    title=Column(String)
+    page=Column(Page)
+    
+    def __repr__(self):
+        return "<href='{0}', title='{1}'>".format(self.href,self.title)
+
+class Page(Base):
+    __tablename__='links'
+
+    title=Column(String)
+    url=Column(String)
+    depth=Column(Integer)
+    
+    def __repr__(self):
+        return "<PAge: title='{0}'>".format(self.title)
